@@ -1,39 +1,45 @@
 package mx.edu.potros.practicasql_bojorquezmichelle
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import android.widget.Button
 import android.widget.EditText
 import android.util.Log
 import android.widget.Toast
+import mx.edu.potros.practicasql_bojorquezmichelle.data.AlumnoSQLHelper
+import mx.edu.potros.practicasql_bojorquezmichelle.entities.Alumno
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var db: AlumnoSQLHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val etNombre = findViewById<EditText>(R.id.nombre)
-        val etApPat = findViewById<EditText>(R.id.apPat)
-        val etApMat = findViewById<EditText>(R.id.apMat)
-        val etCarrera = findViewById<EditText>(R.id.carrera)
+        db=AlumnoSQLHelper(this)
+
+        val nombre = findViewById<EditText>(R.id.nombre)
+        val paterno = findViewById<EditText>(R.id.paterno)
+        val materno = findViewById<EditText>(R.id.materno)
+        val carrera = findViewById<EditText>(R.id.carrera)
         val btnGuardar = findViewById<Button>(R.id.btnGuardar)
 
         btnGuardar.setOnClickListener {
-            val nombre = etNombre.text.toString().trim()
-            val apPat = etApPat.text.toString().trim()
-            val apMat = etApMat.text.toString().trim()
-            val carrera = etCarrera.text.toString().trim()
+            val nombre = nombre.text.toString().trim()
+            val paterno = paterno.text.toString().trim()
+            val materno = materno.text.toString().trim()
+            val carrera = carrera.text.toString().trim()
+            val alumno= Alumno(nombre, paterno, materno, carrera)
 
-            if (nombre.isEmpty() || apPat.isEmpty() || apMat.isEmpty() || carrera.isEmpty()) {
+            db.insertAlumno(alumno)
+            Toast.makeText(this, "Alumno guardado", Toast.LENGTH_SHORT).show()
+
+            if (nombre.isEmpty() || paterno.isEmpty() || materno.isEmpty() || carrera.isEmpty()) {
                 Toast.makeText(this, "Por favor, llena todos los campos", Toast.LENGTH_SHORT).show()
             } else {
                 val alumno = Alumno(
                     nombre = nombre,
-                    apPaterno = apPat,
-                    apMaterno = apMat,
+                    paterno = paterno,
+                    materno = materno,
                     carrera = carrera
                 )
                 Toast.makeText(this, "Alumno guardado", Toast.LENGTH_SHORT).show()
