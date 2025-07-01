@@ -17,17 +17,17 @@ class MainActivity : AppCompatActivity() {
 
         db=AlumnoSQLHelper(this)
 
-        val nombre = findViewById<EditText>(R.id.nombre)
-        val paterno = findViewById<EditText>(R.id.paterno)
-        val materno = findViewById<EditText>(R.id.materno)
-        val carrera = findViewById<EditText>(R.id.carrera)
+        val nombreAlumno = findViewById<EditText>(R.id.nombre)
+        val apPaterno = findViewById<EditText>(R.id.paterno)
+        val apMaterno = findViewById<EditText>(R.id.materno)
+        val carreraAlumno = findViewById<EditText>(R.id.carrera)
         val btnGuardar = findViewById<Button>(R.id.btnGuardar)
 
         btnGuardar.setOnClickListener {
-            val nombre = nombre.text.toString().trim()
-            val paterno = paterno.text.toString().trim()
-            val materno = materno.text.toString().trim()
-            val carrera = carrera.text.toString().trim()
+            val nombre = nombreAlumno.text.toString().trim()
+            val paterno = apPaterno.text.toString().trim()
+            val materno = apMaterno.text.toString().trim()
+            val carrera = carreraAlumno.text.toString().trim()
             val alumno= Alumno(nombre, paterno, materno, carrera)
 
             db.insertAlumno(alumno)

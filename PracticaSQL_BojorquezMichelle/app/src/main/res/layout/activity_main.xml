@@ -8,8 +8,8 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingHorizontal="20dp"
-    android:paddingTop="30dp"
-    android:paddingBottom="30dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
     tools:context=".MainActivity">
 
         <TextView
@@ -28,13 +28,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nombre:"
-            android:textSize="16sp"/>
+            android:textSize="10sp"/>
 
         <EditText
             android:id="@+id/nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="2dp"
             android:hint="Nombre"/>
 
         <TextView
@@ -42,13 +42,13 @@
             android:layout_height="wrap_content"
             android:text="Apellido paterno:"
             android:textSize="16sp"
-            android:layout_marginTop="24dp"/>
+            android:layout_marginTop="10dp"/>
 
         <EditText
             android:id="@+id/paterno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="2dp"
             android:hint="Apellido paterno"/>
 
         <TextView
@@ -56,13 +56,13 @@
             android:layout_height="wrap_content"
             android:text="Apellido materno:"
             android:textSize="16sp"
-            android:layout_marginTop="24dp"/>
+            android:layout_marginTop="10dp"/>
 
         <EditText
             android:id="@+id/materno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="2dp"
             android:hint="Apellido materno"/>
 
         <TextView
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:text="Carrera:"
             android:textSize="16sp"
-            android:layout_marginTop="24dp"/>
+            android:layout_marginTop="10dp"/>
 
         <EditText
             android:id="@+id/carrera"
@@ -86,6 +86,22 @@
             android:text="Guardar"
             android:layout_gravity="center"
             android:backgroundTint="@color/naranja"
-            android:layout_marginTop="32dp"/>
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:textSize="24sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center"
+            android:text="@string/students"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:id="@+id/studentsList"/>
+
 
     </LinearLayout>
