@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import mx.edu.potros.practicasql_bojorquezmichelle.R
+import mx.edu.potros.practicasql_bojorquezmichelle.entities.Alumno
 
 class AlumnosAdapter(private var alumnos: List<Alumno>, context: Context): RecyclerView.Adapter<AlumnosAdapter.AlumnosViewHolder>() {
 
