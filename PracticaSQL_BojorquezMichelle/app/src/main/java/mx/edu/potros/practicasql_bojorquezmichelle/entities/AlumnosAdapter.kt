@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import mx.edu.potros.practicasql_bojorquezmichelle.R
 import mx.edu.potros.practicasql_bojorquezmichelle.entities.Alumno
 
-class AlumnosAdapter(private var alumnos: List<Alumno>, context: Context): RecyclerView.Adapter<AlumnosAdapter.AlumnosViewHolder>() {
+class AlumnosAdapter(private var alumnos: MutableList<Alumno>, context: Context): RecyclerView.Adapter<AlumnosAdapter.AlumnosViewHolder>() {
 
     class AlumnosViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val nombretv = itemView.findViewById<TextView>(R.id.tvNombre)
@@ -31,4 +31,10 @@ class AlumnosAdapter(private var alumnos: List<Alumno>, context: Context): Recyc
         holder.carreratv.text = "${alumno.carrera}"
     }
 
+    fun actualizarLista(nuevaLista: List<Alumno>) {
+        (alumnos as MutableList).clear()
+        (alumnos as MutableList).addAll(nuevaLista)
+        notifyDataSetChanged()
     }
+}
+
